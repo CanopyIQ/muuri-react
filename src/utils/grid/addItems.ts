@@ -18,7 +18,11 @@ export function addItems(
 ): void {
   for (let i = 0; i < addedDOMItems.length; i++) {
     // Add the items.
-    grid.add(addedDOMItems[i], {index: indicesToAdd[i], layout: false});
+    grid.add(addedDOMItems[i], {
+      index: indicesToAdd[i],
+      layout: false,
+      active: addOptions?.active,
+    });
   }
 
   // Show the added items (usefull just if the items are

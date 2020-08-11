@@ -609,6 +609,7 @@ GridComponent.propTypes = {
   }),
   addOptions: PropTypes.exact({
     show: PropTypes.bool,
+    active: PropTypes.bool,
   }),
   onSend: PropTypes.func,
   onDragStart: PropTypes.func,

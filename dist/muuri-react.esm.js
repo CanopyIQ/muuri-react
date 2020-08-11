@@ -143,7 +143,7 @@ Muuri.Item.prototype.setData = function setData(data) {
 };
 
 // Grid context.
-var GridContext = createContext({}); // Grid provider.
+var GridContext = /*#__PURE__*/createContext({}); // Grid provider.
 
 var GridProvider = GridContext.Provider; // Grid context hook.
 
@@ -154,7 +154,7 @@ var useGridContext = function useGridContext() {
 GridContext.displayName = 'GridProvider';
 
 // Item context.
-var ItemContext = createContext({}); // Item provider.
+var ItemContext = /*#__PURE__*/createContext({}); // Item provider.
 
 var ItemProvider = ItemContext.Provider; // Item context hook.
 
@@ -312,7 +312,7 @@ var ItemAddController = /*#__PURE__*/function () {
   return ItemAddController;
 }();
 
-function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
@@ -1596,7 +1596,8 @@ function addItems(grid, addedDOMItems, indicesToAdd, addOptions, filter) {
     // Add the items.
     grid.add(addedDOMItems[i], {
       index: indicesToAdd[i],
-      layout: false
+      layout: false,
+      active: addOptions === null || addOptions === void 0 ? void 0 : addOptions.active
     });
   } // Show the added items (usefull just if the items are
   // hidden by default and the filter is not setted).
@@ -1704,7 +1705,7 @@ function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { 
 function sortItems(grid, predicate, sortOptions) {
   // Disable the layout.
   // @ts-ignore
-  sortOptions = _objectSpread$1({}, sortOptions || {}, {
+  sortOptions = _objectSpread$1(_objectSpread$1({}, sortOptions || {}), {}, {
     layout: false
   }); // Handle a function.
 
@@ -1818,6 +1819,8 @@ function GridComponent(_ref) {
     return {
       // Grid and items data.
       gridRef:
+      /*#__PURE__*/
+
       /*      */
       createRef(),
       gridClass:
@@ -2330,7 +2333,8 @@ GridComponent.propTypes = {
     descending: PropTypes.bool
   }),
   addOptions: PropTypes.exact({
-    show: PropTypes.bool
+    show: PropTypes.bool,
+    active: PropTypes.bool
   }),
   onSend: PropTypes.func,
   onDragStart: PropTypes.func,
@@ -2676,7 +2680,7 @@ function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if 
 
 function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-var MuuriComponent = forwardRef(function MuuriComponent(_ref, muuriRef) {
+var MuuriComponent = /*#__PURE__*/forwardRef(function MuuriComponent(_ref, muuriRef) {
   var children = _ref.children,
       id = _ref.id,
       groupIds = _ref.groupIds,
@@ -2872,7 +2876,7 @@ MuuriComponent.propTypes = {
   itemPlaceholderClass: PropTypes.string
 }; // Default props.
 
-MuuriComponent.defaultProps = _objectSpread$2({}, Muuri.defaultOptions, {
+MuuriComponent.defaultProps = _objectSpread$2(_objectSpread$2({}, Muuri.defaultOptions), {}, {
   dragEnabled: null
 }); // Display name.
 

@@ -25,7 +25,7 @@ export interface ReactGridProps {
   /** The sort options. */
   sortOptions?: {descending?: boolean};
   /** Add options. */
-  addOptions?: {show?: boolean};
+  addOptions?: {show?: boolean; active?: boolean};
   /** Function that generate the items data. */
   propsToData?: (props: object) => object;
   /** Method used within Reparenting. */
