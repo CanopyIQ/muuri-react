@@ -2862,7 +2862,7 @@
       // Add the items.
       grid.add(addedDOMItems[i], {
         index: indicesToAdd[i],
-        layout: false,
+        layout: (addOptions === null || addOptions === void 0 ? void 0 : addOptions.layout) || false,
         active: addOptions === null || addOptions === void 0 ? void 0 : addOptions.active
       });
     } // Show the added items (usefull just if the items are
@@ -3600,7 +3600,8 @@
     }),
     addOptions: propTypes.exact({
       show: propTypes.bool,
-      active: propTypes.bool
+      active: propTypes.bool,
+      layout: propTypes.bool
     }),
     onSend: propTypes.func,
     onDragStart: propTypes.func,

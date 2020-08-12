@@ -20,7 +20,7 @@ export function addItems(
     // Add the items.
     grid.add(addedDOMItems[i], {
       index: indicesToAdd[i],
-      layout: false,
+      layout: addOptions?.layout || false,
       active: addOptions?.active,
     });
   }

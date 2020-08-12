@@ -14,6 +14,7 @@ export declare namespace GridComponent {
         addOptions: PropTypes.Requireable<Required<PropTypes.InferProps<{
             show: PropTypes.Requireable<boolean>;
             active: PropTypes.Requireable<boolean>;
+            layout: PropTypes.Requireable<boolean>;
         }>>>;
         onSend: PropTypes.Requireable<(...args: any[]) => any>;
         onDragStart: PropTypes.Requireable<(...args: any[]) => any>;

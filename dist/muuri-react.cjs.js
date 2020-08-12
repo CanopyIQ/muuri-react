@@ -1603,7 +1603,7 @@ function addItems(grid, addedDOMItems, indicesToAdd, addOptions, filter) {
     // Add the items.
     grid.add(addedDOMItems[i], {
       index: indicesToAdd[i],
-      layout: false,
+      layout: (addOptions === null || addOptions === void 0 ? void 0 : addOptions.layout) || false,
       active: addOptions === null || addOptions === void 0 ? void 0 : addOptions.active
     });
   } // Show the added items (usefull just if the items are
@@ -2341,7 +2341,8 @@ GridComponent.propTypes = {
   }),
   addOptions: PropTypes.exact({
     show: PropTypes.bool,
-    active: PropTypes.bool
+    active: PropTypes.bool,
+    layout: PropTypes.bool
   }),
   onSend: PropTypes.func,
   onDragStart: PropTypes.func,

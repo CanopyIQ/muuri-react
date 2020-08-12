@@ -20,6 +20,7 @@ export interface ReactGridProps {
     addOptions?: {
         show?: boolean;
         active?: boolean;
+        layout?: boolean;
     };
     /** Function that generate the items data. */
     propsToData?: (props: object) => object;
